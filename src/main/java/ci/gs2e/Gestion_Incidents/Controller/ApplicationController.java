@@ -19,7 +19,7 @@ import java.util.List;
 public class ApplicationController {
     @Autowired
 
-    ApplicationService applicationService;
+    private ApplicationService applicationService;
     @PostMapping
     public ResponseEntity<Logiciel> create(@RequestBody Logiciel application){
 

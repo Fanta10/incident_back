@@ -25,21 +25,27 @@ public class RexController {
     @Autowired
    private RexService rexService;
 //@PreAuthorize("hasAuthority('SCOPE8uSER')")
+/* 
     @GetMapping
     public ResponseEntity<Page<Rex>> getRex(RexPage rexPage, RexSearchCriteria rexSearchCriteria){
         return new ResponseEntity<>(rexService.getRex(rexPage,rexSearchCriteria),
                     HttpStatus.OK);
     }
+    */
 
 
-/*
+
+
+
     @GetMapping
     public ResponseEntity<List<Rex>> getAll(){
 
        return new ResponseEntity<>(rexService.listAll(), HttpStatus.OK);
      }
 
- */
+ 
+
+
     @PostMapping
     public ResponseEntity<Rex> create(@RequestBody Rex rex){
 
@@ -65,8 +71,8 @@ public class RexController {
     }
 
     //getbynom&prenom
-    @GetMapping("/{nom}")
-    public ResponseEntity<List<Rex>> getByNom(@PathVariable("keyword") String nom){
+    @GetMapping("/rex")
+    public ResponseEntity<List<Rex>> getByNom(@RequestParam(name = "keyword") String nom){
         return new ResponseEntity<List<Rex>>(rexService.searchRex(nom), HttpStatus.OK);
     }
 

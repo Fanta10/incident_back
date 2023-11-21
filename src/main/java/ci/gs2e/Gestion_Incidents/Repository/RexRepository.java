@@ -19,4 +19,6 @@ public interface RexRepository extends JpaRepository<Rex,Integer> {
     @Query("select c from Rex c where c.nom like :kw")
     List<Rex> searchRex(@Param("kw") String keyword);
 
+
+
  }

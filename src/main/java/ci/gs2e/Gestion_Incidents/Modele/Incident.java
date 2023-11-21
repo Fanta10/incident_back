@@ -20,11 +20,11 @@ public class Incident {
     //private String codeInc;
     private String libelleInc;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idAppEnv")
     private AppEnvironnement appEnvironnement;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idApp")
     private Logiciel logiciel;
 

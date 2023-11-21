@@ -41,6 +41,6 @@ public class EnvironnementServiceImpl implements EnvironnementService{
     @Override
     public Optional<Environnement> listByLibelle(String libelleEnv) {
 
-        return environnementRepository.findByLibelleEnv(libelleEnv);
+        return environnementRepository.findByLibelleEnvContains(libelleEnv);
     }
 }

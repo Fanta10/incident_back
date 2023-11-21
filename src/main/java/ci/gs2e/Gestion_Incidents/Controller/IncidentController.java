@@ -6,6 +6,7 @@ import ci.gs2e.Gestion_Incidents.Modele.Logiciel;
 import ci.gs2e.Gestion_Incidents.Modele.Pload.IncidentPayload;
 import ci.gs2e.Gestion_Incidents.Service.Incident.IncidentService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @AllArgsConstructor
-@RequestMapping("v1/incident")
+@RequestMapping("/v1/incident")
 
 public class IncidentController {
+    @Autowired
     IncidentService incidentService;
     private final Path root = Paths.get("Document");
     @GetMapping

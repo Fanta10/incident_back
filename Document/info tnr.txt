@@ -1,0 +1,6 @@
+http://gsesphv3b7pp/CIE_ExecutionPS/ExecutionPsServices.svc/JSClientEndPoint/GetDataFromWebServiceWithJSJasonExterneDataBase
+http://GSESPHV3B3PP/SODECI_ExecutionPS/ExecutionPsServices.svc/JSClientEndPoint/GetDataFromWebServiceWithJSJasonExterneDataBase
+
+http://gsesphv3c3pp/SODECITNR/"	
+
+http://AdminSaphirV3PP:$pecial@ccountpp02@gsesphv3c3pp/SODECITNR/main.aspx?_CreateFromId=%7bFD140AAF-4DF4-11DD-BD17-0019B9312238%7d&_CreateFromType=7100&appSolutionId=%7bFD140AAF-4DF4-11DD-BD17-0019B9312238%7d&etc=9333&id=%7b4F0BBEC1-C567-E311-8655-005056BB0063%7d&pagetype=webresourceedit#488683267

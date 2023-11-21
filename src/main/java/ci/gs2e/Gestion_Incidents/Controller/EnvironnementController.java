@@ -4,18 +4,26 @@ import ci.gs2e.Gestion_Incidents.Modele.Logiciel;
 import ci.gs2e.Gestion_Incidents.Modele.Environnement;
 import ci.gs2e.Gestion_Incidents.Service.Environnement.EnvironnementService;
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/environnement")
-@AllArgsConstructor
+//@AllArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders="*")
 public class EnvironnementController {
-    EnvironnementService environnementService;
+
+    @Autowired
+   private EnvironnementService environnementService;
+
     @GetMapping
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity <List<Environnement>> getAll(){
@@ -35,6 +43,11 @@ public class EnvironnementController {
     public void delete(@PathVariable("idEnv") int idEnv){
         environnementService.delete(idEnv);
 
+    }
+
+    @GetMapping("/recherche")
+    public  ResponseEntity<Optional<Environnement>> search(@RequestParam(name = "keyword") String libelleEnv){
+        return  new ResponseEntity<Optional<Environnement>>(environnementService.listByLibelle(libelleEnv),HttpStatus.OK);
     }
 
 }

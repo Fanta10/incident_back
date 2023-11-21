@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -21,12 +22,24 @@ public class UserInfoService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        /*
+        //Write Logic to get the user from the DB
+
+        User user = repository.findByEmail(email).orElseThrow(null);
+        if(user == null){
+            throw new UsernameNotFoundException("User not found",null);
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+
+*/
 
         Optional<User> userDetail = repository.findByEmail(email);
 
         // Converting userDetail to UserDetails
         return userDetail.map(UserInfoDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found " + email));
+
+
     }
 
     public User addUser(User userInfo) {
@@ -34,4 +47,6 @@ public class UserInfoService implements UserDetailsService {
        return repository.save(userInfo);
 
     }
+
+
 }
